@@ -18,6 +18,17 @@ create table PetOwners(
     mobile_number varchar(20) not null
 )engine=innodb;
 
+create table Pets(
+    pet_id int unsigned auto_increment primary key,
+    name varchar(50) not null,
+    petowner_id int unsigned not null,
+    foreign key (petowner_id) references PetOwners(petowner_id)
+)engine=innodb;
+
+--Problems about Foreign Key
+--> Cannot insert a pet for an non existent pet owner
+--> Cannot delete a pet owner if pet exists in the pet table
+
 --modify table (Vets) by adding a column (office_number)
 alter table Vets add office_number varchar(20) not null;
 alter table PetOwners add email varchar(50) not null;
@@ -47,3 +58,15 @@ delete from PetOwners where petowner_id = 2;
 
 --delete an entire table 
 drop table PetOwners
+
+--selet all columns
+select * from Pets
+
+--select firstname, lastName, email, jobtitle columns from employees table 
+select firstname, lastName, email, jobtitle from employees;
+
+--select firstname, lastName, email columns from employees table who are sale reps 
+select firstname, lastName, email from employees where jobtitle ="Sale Reps";
+
+--select all rows from customers table who are from USA and credit limit above 20000 
+select * from customer where countries = USA and creditLimit > 20000;
