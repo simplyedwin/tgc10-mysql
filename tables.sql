@@ -70,3 +70,23 @@ select firstname, lastName, email from employees where jobtitle ="Sale Reps";
 
 --select all rows from customers table who are from USA and credit limit above 20000 
 select * from customer where countries = USA and creditLimit > 20000;
+
+-- selet all rows from employees  whose jobtitles has a start substring of sales
+SELECT * FROM employees where jobtitle like 'Sales%';
+
+-- selet all rows from employees  whose jobtitles has a end substring of sales
+SELECT * FROM employees where jobtitle like '%Sales';
+
+-- selet all rows from employees  whose jobtitles has a substring of sales
+SELECT * FROM employees where jobtitle like '%Sales%';
+
+/* see all the payments that take place on the first day of every month */
+select * from payments where DAY(paymentDate) = 1;
+
+/*see all the payments that take place in the month of June, 2004 */
+select * from payments where MONTH(paymentDate) = 6 and YEAR(paymentDate)=2004;
+
+/*see all the payments that take place between June 2003 and August 2003*/
+select * from payments where MONTH(paymentDate) >=6 and MONTH(paymentDate) <= 8 and YEAR(paymentDate)=2003;
+
+--> MONTH() YEAR() DAY() only apply on datetime data type
