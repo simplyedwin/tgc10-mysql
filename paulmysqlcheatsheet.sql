@@ -248,6 +248,10 @@ HAVING SUM(amount) > 50000
 ORDER BY sum(amount) DESC
 limit 5
 
+
+/*to check what is the current selected database*/
+select database();
+
 /*
 1. joins
 2. where

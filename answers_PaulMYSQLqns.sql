@@ -215,3 +215,32 @@ insert into Appointments(date_appointed,employee_id,role_id) values
     ("2016-7-21",2,3);
 
 -- Final ShowDown
+create database dog_walk_services;
+
+create table Dog_walkers(
+    id int unsigned auto_increment primary key,
+    name char not null,
+    contact_number not null
+)engine=innodb;
+
+create table Dog_owners(
+    id int unsigned auto_increment primary key,
+    name char not null,
+    contact_number char not null,
+    address char not null
+)engine=innodb;
+
+create table Dogs(
+    id int unsigned auto_increment primary key,
+    name char not null,
+    breed char,
+    dog_owner_id int unsigned not null,
+    foreign key (dog_owner_id) references Dog_owners(dog_owner_id)
+)engine=innodb;
+
+create table Advertisments(
+    
+
+
+
+)engine=innodb; 
